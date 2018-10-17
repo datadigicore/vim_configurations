@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'djoshea/vim-autoread'
 Plug 'dyng/ctrlsf.vim'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
@@ -14,8 +15,11 @@ Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
 Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -35,6 +39,7 @@ highlight MatchParen ctermfg=NONE ctermbg=24
 highlight Pmenu ctermfg=15 ctermbg=0
 highlight PmenuSel ctermfg=NONE ctermbg=24
 
+:set autoread
 :set expandtab
 :set hlsearch
 :set nowrap
@@ -66,6 +71,8 @@ let g:jsx_ext_required=0
 
 let g:fzf_layout={'down':'~25%'}
 
+let g:ctrlsf_default_view_mode = 'compact'
+
 map <C-n> :NERDTreeToggle<CR>
 
 nmap <C-p> :Files<CR>
@@ -75,8 +82,10 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-map <C-S-tab> :bprevious<CR>
-map <C-tab>   :bnext<CR>
+map <C-S-Tab> :bprevious<CR>
+map <C-Tab> :bnext<CR>
 
 map <C-_> <leader>c<space>
 map <Space> :noh<CR>
+
+map <C-F>f :CtrlSF
