@@ -3,18 +3,22 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'djoshea/vim-autoread'
 Plug 'dyng/ctrlsf.vim'
+Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'guns/vim-clojure-highlight'
 Plug 'guns/vim-clojure-static'
+Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'sirver/ultisnips'
 Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-fugitive'
@@ -29,6 +33,11 @@ call plug#end()
 
 syntax on
 filetype plugin indent on
+
+autocmd BufWritePre * %s/\s\+$//e
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=NONE
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=0
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 
 highlight ALEError ctermfg=NONE ctermbg=24
 highlight ALEErrorSign ctermfg=NONE ctermbg=24
@@ -47,6 +56,7 @@ highlight PmenuSel ctermfg=NONE ctermbg=24
 :set noswapfile
 :set backspace=indent,eol,start
 :set clipboard=unnamed
+:set tags=./tags
 :set mouse=a
 :set numberwidth=3
 :set shiftwidth=2
@@ -71,7 +81,26 @@ let g:jsx_ext_required=0
 
 let g:fzf_layout={'down':'~25%'}
 
-let g:ctrlsf_default_view_mode = 'compact'
+let g:ctrlsf_default_view_mode='compact'
+
+let g:ycm_key_list_previous_completion=['<UP>']
+let g:ycm_key_list_select_completion=['<DOWN>']
+let g:ycm_max_num_candidates=5
+
+let g:SuperTabDefaultCompletionType='<C-n>'
+
+let g:UltiSnipsExpandTrigger="<TAB>"
+
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_auto_colors=0
+
+let g:go_highlight_build_constraints=1
+let g:go_highlight_extra_types=1
+let g:go_highlight_fields=1
+let g:go_highlight_function_calls=1
+let g:go_highlight_functions=1
+let g:go_highlight_operators=1
+let g:go_highlight_types=1
 
 map <C-n> :NERDTreeToggle<CR>
 
