@@ -2,7 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+alias k=$HOME/.kube.sh
 export ZSH=$HOME/.oh-my-zsh
+export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/Users/yohaneschristomas/Project/flutter/bin"
+export GOPATH="/Users/yohaneschristomas/Gopay/go"
+export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
+export ANDROID_NDK_HOME="/usr/local/share/android-sdk"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -12,9 +18,9 @@ export ZSH=$HOME/.oh-my-zsh
 POWERLEVEL9K_MODE='awesome-fontconfig'
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
-WERLEVEL9K_OS_ICON_BACKGROUND="white"
+# POWERLEVEL9K_OS_ICON_BACKGROUND="white"
 POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(kubecontext)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
@@ -76,7 +82,6 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-# source $HOME/.fonts/*.sh
 source $HOME/.nvm/nvm.sh
 source $ZSH/oh-my-zsh.sh
 
@@ -108,5 +113,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export FZF_DEFAULT_COMMAND='fd --type f --ignore-file .gitignore'
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+eval "$(rbenv init -)"
